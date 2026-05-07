@@ -1,0 +1,81 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "properties": {
+        "version": {
+            "description": "The version of the manifest",
+            "type": "integer",
+            "const": 1
+        },
+        "min_version": {
+            "description": "The minimum manifest version that a reader needs to know to be able to read this manifest",
+            "type": "integer",
+            "const": 1
+        },
+        "generator": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "The name of the software that generated the manifest",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "The version of the software that generated the manifest",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "version"
+            ]
+        },
+        "root_digest_algorithm": {
+            "description": "The algorithm used to compute the hash of the hashes of all chunks",
+            "type": "string",
+            "const": "xxh3_128"
+        },
+        "chunk_digest_algorithm": {
+            "description": "The algorithm used to compute the hash of each chunk",
+            "type": "string",
+            "const": "xxh3_128"
+        },
+        "root_digest": {
+            "description": "The hash of the hashes of all chunks",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+        },
+        "chunks": {
+            "description": "The sequence of chunks to concatenate to reproduce the original file",
+            "type": "array",
+            "items": {
+                "description": "chunk",
+                "type": "object",
+                "properties": {
+                    "digest": {
+                        "description": "The hash of the chunk",
+                        "type": "string",
+                        "pattern": "^[0-9a-f]{32}$"
+                    },
+                    "length": {
+                        "description": "The length of the chunk",
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 16777216
+                    }
+                },
+                "required": [
+                    "digest",
+                    "length"
+                ]
+            }
+        }
+    },
+    "required": [
+        "version",
+        "min_version",
+        "generator",
+        "root_digest_algorithm",
+        "chunk_digest_algorithm",
+        "root_digest",
+        "chunks"
+    ]
+}

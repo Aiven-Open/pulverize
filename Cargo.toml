@@ -1,0 +1,13 @@
+[package]
+name = "pulverize"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+argh = { version = "0.1.19", default-features = false, features = ["help"] } # BSD-3-Clause
+fastcdc = "4.0.1"# MIT
+miniserde = "0.1.45"# MIT OR Apache-2.0
+xxhash-rust = { version = "0.8.15", features = ["xxh3"] } # BSL-1.0
+
+[dev-dependencies]
+rand = "0.10.1"# MIT OR Apache-2.0
