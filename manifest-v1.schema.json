@@ -31,12 +31,12 @@
         "root_digest_algorithm": {
             "description": "The algorithm used to compute the hash of the hashes of all chunks",
             "type": "string",
-            "const": "xxh3_128"
+            "const": "xxh128"
         },
         "chunk_digest_algorithm": {
             "description": "The algorithm used to compute the hash of each chunk",
             "type": "string",
-            "const": "xxh3_128"
+            "const": "xxh128"
         },
         "root_digest": {
             "description": "The hash of the hashes of all chunks",

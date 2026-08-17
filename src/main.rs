@@ -78,8 +78,8 @@ fn build_manifest(root_digest: String, chunks: Vec<Chunk>) -> Manifest {
             name: env!("CARGO_PKG_NAME").into(),
             version: env!("CARGO_PKG_VERSION").into(),
         },
-        root_digest_algorithm: String::from("xxh3_128"),
-        chunk_digest_algorithm: String::from("xxh3_128"),
+        root_digest_algorithm: String::from("xxh128"),
+        chunk_digest_algorithm: String::from("xxh128"),
         root_digest,
         chunks,
     }
